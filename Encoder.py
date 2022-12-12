@@ -4,7 +4,7 @@ import bitarray
 endMessage = "11111111"
 
 img = Image.open("encoderImage.png")
-message = str(input("What text would you like to encode? "))
+message = input("What text would you like to encode? ")
 width, height = img.size
 
 messageBitArray = bitarray.bitarray()
@@ -23,7 +23,6 @@ for bit in messageBitArray:
         a = 255
     #Turn R into r, but remove last pixel and turn it into the bit we are encoding
     RIntString = list(str(r))
-    input(RIntString)
 
     #Only change the very last number of the r string to make a minimal change
     RIntString[len(RIntString)-1] = str(bit)
@@ -50,7 +49,6 @@ for bit in endMessage:
 
     #Turn R into r, but remove last pixel and turn it into the bit we are encoding
     RIntString = list(str(r))
-    input(RIntString)
 
     #Only change the very last number of the r string to make a minimal change
     RIntString[len(RIntString)-1] = str(bit)
