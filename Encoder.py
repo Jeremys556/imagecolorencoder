@@ -13,6 +13,7 @@ messageBitArray = list(messageBitArray)
 
 x = 0
 y = 0
+
 for bit in messageBitArray:
     coordinate = (x,y)
     try:
@@ -22,13 +23,12 @@ for bit in messageBitArray:
         a = 255
     #Turn R into r, but remove last pixel and turn it into the bit we are encoding
     RIntString = list(str(r))
-    lastRInt = RIntString[len(RIntString)-1]
-    newRInt = ""
+    input(RIntString)
 
     #Only change the very last number of the r string to make a minimal change
-    for rInt in range(len(RIntString)-2):
-        newRInt = newRInt + str(rInt)
-    newRInt = newRInt + str(bit)
+    RIntString[len(RIntString)-1] = str(bit)
+    newRInt = ""
+    newRInt = ''.join(RIntString)
 
     img.putpixel((coordinate), (int(newRInt), g, b, a))
 
@@ -50,11 +50,12 @@ for bit in endMessage:
 
     #Turn R into r, but remove last pixel and turn it into the bit we are encoding
     RIntString = list(str(r))
-    lastRInt = RIntString[len(RIntString)-1]
+    input(RIntString)
+
+    #Only change the very last number of the r string to make a minimal change
+    RIntString[len(RIntString)-1] = str(bit)
     newRInt = ""
-    for rInt in range(len(RIntString)-2):
-        newRInt = newRInt + str(rInt)
-    newRInt = newRInt + str(bit)
+    newRInt = ''.join(RIntString)
 
     img.putpixel((coordinate), (int(newRInt), g, b, a))
 
